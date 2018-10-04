@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\nnav {\n    margin: 0;\n    padding: 0;\n    width: 100px;\n    overflow: hidden;\n    background-color: #f1f1f1;\n}\nnav a {\n    display: block;\n    color: #000;\n    padding: 8px 16px;\n    text-decoration: none;\n}\nnav a:hover {\n    background-color: #555;\n    color: white;\n}"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nnav {\n    margin: 0;\n    padding: 0px 10px;\n    text-align: left;\n    overflow: hidden;\n    background-color: #f1f1f1;\n}\nnav a {\n    display: inline-block;\n    color: #000;\n    padding: 8px 16px;\n    text-decoration: none;\n}\nnav a:hover {\n    background-color: #555;\n    color: white;\n}"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Smite\smite-app\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\karis\OneDrive\Documents\GitHub\Smite-Damage-Calculator\Smite\smite-app\src\styles.css */"./src/styles.css");
 
 
 /***/ })

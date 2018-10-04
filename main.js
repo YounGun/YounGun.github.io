@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n  <a routerLink=\"/gods\" routerLinkActive=\"active\">Gods</a>\n</nav>\n<router-outlet></router-outlet>"
+module.exports = "<nav>\n  <a routerLink=\"/gods\" routerLinkActive=\"active\">Gods</a>\n  <a routerLink=\"/items\" routerLinkActive=\"active\">Items</a>\n</nav>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _god_detail_god_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./god-detail/god-detail.component */ "./src/app/god-detail/god-detail.component.ts");
 /* harmony import */ var _god_list_god_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./god-list/god-list.component */ "./src/app/god-list/god-list.component.ts");
+/* harmony import */ var _item_list_item_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./item-list/item-list.component */ "./src/app/item-list/item-list.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -135,9 +136,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var appRoutes = [
     { path: 'gods', component: _god_list_god_list_component__WEBPACK_IMPORTED_MODULE_7__["GodListComponent"] },
-    { path: 'gods/:name', component: _god_detail_god_detail_component__WEBPACK_IMPORTED_MODULE_6__["GodDetailComponent"] }
+    { path: 'gods/:name', component: _god_detail_god_detail_component__WEBPACK_IMPORTED_MODULE_6__["GodDetailComponent"] },
+    { path: 'items', component: _item_list_item_list_component__WEBPACK_IMPORTED_MODULE_8__["ItemListComponent"] },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule(router) {
@@ -150,7 +153,8 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _god_detail_god_detail_component__WEBPACK_IMPORTED_MODULE_6__["GodDetailComponent"],
-                _god_list_god_list_component__WEBPACK_IMPORTED_MODULE_7__["GodListComponent"]
+                _god_list_god_list_component__WEBPACK_IMPORTED_MODULE_7__["GodListComponent"],
+                _item_list_item_list_component__WEBPACK_IMPORTED_MODULE_8__["ItemListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -333,6 +337,82 @@ var GodListComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/item-list/item-list.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/item-list/item-list.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".item {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: center;\r\n    width: 120px;\r\n}\r\nimg {\r\n    width: 100px;\r\n    height: 100px;\r\n    background-color: grey;\r\n}\r\nimg:hover {\r\n    -webkit-transform: translate(0, -5px);\r\n            transform: translate(0, -5px);\r\n  }\r\n.caption {\r\n    display: block;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/item-list/item-list.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/item-list/item-list.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Title of the document</title>\n</head>\n\n<body>\n    <h1>Smite Gods</h1>\n    <div class=\"item\" *ngFor=\"let item of items\" [class.selected]=\"item.DeviceName === selectedName\">\n          <img class=\"test\" src=\"{{item.itemIcon_URL}}\" alt=\"{{item.DeviceName}}\">\n        <span class=\"caption\"> {{item.DeviceName}} </span>\n    </div>\n    \n  \n</body>\n\n\n\n</html> "
+
+/***/ }),
+
+/***/ "./src/app/item-list/item-list.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/item-list/item-list.component.ts ***!
+  \**************************************************/
+/*! exports provided: ItemListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemListComponent", function() { return ItemListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _smite_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../smite.service */ "./src/app/smite.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ItemListComponent = /** @class */ (function () {
+    function ItemListComponent(smiteService) {
+        this.smiteService = smiteService;
+        this.getItems();
+        console.log(this.items);
+    }
+    ItemListComponent.prototype.getItems = function () {
+        var _this = this;
+        this.smiteService.getItems()
+            .subscribe(function (items) {
+            var arr = Object.values(items);
+            _this.items = arr;
+            console.log(_this.items);
+        });
+    };
+    ItemListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-item-list',
+            template: __webpack_require__(/*! ./item-list.component.html */ "./src/app/item-list/item-list.component.html"),
+            providers: [_smite_service__WEBPACK_IMPORTED_MODULE_1__["SmiteService"]],
+            styles: [__webpack_require__(/*! ./item-list.component.css */ "./src/app/item-list/item-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [_smite_service__WEBPACK_IMPORTED_MODULE_1__["SmiteService"]])
+    ], ItemListComponent);
+    return ItemListComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/smite.service.ts":
 /*!**********************************!*\
   !*** ./src/app/smite.service.ts ***!
@@ -362,6 +442,7 @@ var SmiteService = /** @class */ (function () {
     function SmiteService(http) {
         this.http = http;
         this.smiteGodsUrl = '../assets/godsData.json';
+        this.smiteItemsUrl = '../assets/itemsData.json';
     }
     SmiteService.prototype.getGods = function () {
         return this.http.get(this.smiteGodsUrl);
@@ -370,6 +451,9 @@ var SmiteService = /** @class */ (function () {
         return this.getGods().pipe(
         // (+) before `id` turns the string into a number
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (gods) { return gods.find(function (god) { return god.Name === name; }); }));
+    };
+    SmiteService.prototype.getItems = function () {
+        return this.http.get(this.smiteItemsUrl);
     };
     SmiteService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -444,7 +528,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Smite\smite-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\karis\OneDrive\Documents\GitHub\Smite-Damage-Calculator\Smite\smite-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })
