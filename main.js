@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n  <a routerLink=\"/gods\" routerLinkActive=\"active\">Gods</a>\n  <a routerLink=\"/items\" routerLinkActive=\"active\">Items</a>\n</nav>\n<router-outlet></router-outlet>"
+module.exports = "<header>\n  <nav>\n    <a routerLink=\"/gods\" routerLinkActive=\"active\">Gods</a>\n    <a routerLink=\"/items\" routerLinkActive=\"active\">Items</a>\n  </nav>\n</header>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -182,7 +182,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".god {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: center;\r\n    width: 180px;\r\n}\r\nimg {\r\n    width: 180px;\r\n    height: 334px;\r\n    background-color: grey;\r\n}\r\n.caption {\r\n    display: block;\r\n}"
+module.exports = "img {\r\n    border: 1px solid black ;\r\n    float: left;\r\n    width: 180px;\r\n    height: 334px;\r\n    margin: 24px 24px;\r\n    background-color: #f4f4f4;\r\n}\r\ntable, th, td {\r\n    border: 1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable {\r\n    float: right;\r\n    margin: 24px;\r\n    color: #2d3142;\r\n}\r\nth, td {\r\n    padding: 10px;\r\n}\r\nth {\r\n    background-color:#cca43b;\r\n    color: white;\r\n}\r\nh1 {\r\n    text-align: center;\r\n}"
 
 /***/ }),
 
@@ -193,7 +193,7 @@ module.exports = ".god {\r\n    display: inline-block;\r\n    vertical-align: to
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"god$ | async as god\">\n  <div class=\"god\">\n    <img src=\"{{god.godCard_URL}}\">\n    <span class=\"caption\"> {{god.Name}} </span>\n  </div>\n</div>"
+module.exports = "<div class=\"group\" *ngIf=\"god$ | async as god\">\n  <h1>{{god.Name}}</h1>\n  <div>\n      <img src=\"{{god.godCard_URL}}\">\n  </div>\n  <div class=\"stats\">\n      <table class=\"centerTable\">\n          <tr>\n            <th>Attack Speed</th>\n            <th>Attack Speed Per Level</th>\n          </tr>\n          <tr>\n            <td> {{god.AttackSpeed}} </td>\n            <td> {{god.AttackSpeedPerLevel}} </td>\n          </tr>\n      </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -267,7 +267,7 @@ var GodDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".god {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: center;\r\n    width: 120px;\r\n}\r\nimg {\r\n    width: 100px;\r\n    height: 100px;\r\n    background-color: grey;\r\n}\r\nimg:hover {\r\n    -webkit-transform: translate(0, -5px);\r\n            transform: translate(0, -5px);\r\n  }\r\n.caption {\r\n    display: block;\r\n}"
+module.exports = ".list {\r\n    text-align: center;\r\n}\r\n.god {\r\n    vertical-align: top;\r\n    display: inline-block;\r\n    width: 120px;\r\n}\r\nimg {\r\n    border: 1px solid black;\r\n    border-radius: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n    background-color: grey;\r\n}\r\nimg:hover {\r\n    -webkit-transform: translate(5px, 0);\r\n            transform: translate(5px, 0);\r\n  }\r\n.caption {\r\n    display: block;\r\n}\r\nh1 {\r\n    text-align: center;\r\n}"
 
 /***/ }),
 
@@ -278,7 +278,7 @@ module.exports = ".god {\r\n    display: inline-block;\r\n    vertical-align: to
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Title of the document</title>\n</head>\n\n<body>\n    <h1>Smite Gods</h1>\n    <div class=\"god\" *ngFor=\"let god of gods\" [class.selected]=\"god.Name === selectedName\">\n        <a [routerLink]=\"['/gods', god.Name]\" routerLinkActive=\"active\">\n            <img class=\"test\" src=\"{{god.godIcon_URL}}\" alt=\"{{god.Name}}\">\n        </a>\n        <span class=\"caption\"> {{god.Name}} </span>\n    </div>\n    \n  \n</body>\n\n\n\n</html> "
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Title of the document</title>\n</head>\n\n<body>\n    <h1>Gods</h1>\n    <div class=\"list\">\n        <div class=\"god\" *ngFor=\"let god of gods\" [class.selected]=\"god.Name === selectedName\">\n            <a [routerLink]=\"['/gods', god.Name]\" routerLinkActive=\"active\">\n                <img class=\"test\" src=\"{{god.godIcon_URL}}\" alt=\"{{god.Name}}\">\n            </a>\n            <span class=\"caption\"> {{god.Name}} </span>\n        </div>\n    </div>\n</body>\n\n\n\n</html> "
 
 /***/ }),
 
@@ -344,7 +344,7 @@ var GodListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".item {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: center;\r\n    width: 120px;\r\n}\r\nimg {\r\n    width: 100px;\r\n    height: 100px;\r\n    background-color: grey;\r\n}\r\nimg:hover {\r\n    -webkit-transform: translate(0, -5px);\r\n            transform: translate(0, -5px);\r\n  }\r\n.caption {\r\n    display: block;\r\n}"
+module.exports = ".list {\r\n    text-align: center;\r\n}\r\n\r\n.item {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    \r\n    width: 120px;\r\n}\r\n\r\nimg {\r\n    border: 1px solid black;\r\n    border-radius: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n    background-color: grey;\r\n}\r\n\r\nimg:hover {\r\n    -webkit-transform: translate(0, -5px);\r\n            transform: translate(0, -5px);\r\n  }\r\n\r\n.caption {\r\n    display: block;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n}"
 
 /***/ }),
 
@@ -355,7 +355,7 @@ module.exports = ".item {\r\n    display: inline-block;\r\n    vertical-align: t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Title of the document</title>\n</head>\n\n<body>\n    <h1>Smite Gods</h1>\n    <div class=\"item\" *ngFor=\"let item of items\" [class.selected]=\"item.DeviceName === selectedName\">\n          <img class=\"test\" src=\"{{item.itemIcon_URL}}\" alt=\"{{item.DeviceName}}\">\n        <span class=\"caption\"> {{item.DeviceName}} </span>\n    </div>\n    \n  \n</body>\n\n\n\n</html> "
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Title of the document</title>\n</head>\n\n<body>\n    <h1>Items</h1>\n    <div class=\"list\">\n      <div class=\"item\" *ngFor=\"let item of items\" [class.selected]=\"item.DeviceName === selectedName\">\n            <img class=\"test\" src=\"{{item.itemIcon_URL}}\" alt=\"{{item.DeviceName}}\">\n          <span class=\"caption\"> {{item.DeviceName}} </span>\n      </div>\n    </div>\n</body>\n\n</html> "
 
 /***/ }),
 

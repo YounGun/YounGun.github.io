@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\nnav {\n    margin: 0;\n    padding: 0px 10px;\n    text-align: left;\n    overflow: hidden;\n    background-color: #f1f1f1;\n}\nnav a {\n    display: inline-block;\n    color: #000;\n    padding: 8px 16px;\n    text-decoration: none;\n}\nnav a:hover {\n    background-color: #555;\n    color: white;\n}"
+module.exports = "/* You can add global styles to this file, and also import other style files */\n* {\n    margin: 0;\n    padding: 0;\n}\nnav {\n    margin: 0;\n    padding: 0px 0px;\n    text-align: left;\n    overflow: hidden;\n    background-color:#4f5d75;\n    font-size: 1.5em;\n    color: #e5e5e5;\n}\nnav a {\n    display: inline-block;\n    color: #e5e5e5;\n    padding: 24px 24px;\n    text-decoration: none;\n}\nnav a:hover {\n    background-color: #555;\n    color: white;\n}\nheader {\n    background-color:#4f5d75;\n}\nh1 {\n    padding: 24px;\n    font-size: 3em;\n}\nhtml {\n    background: #f4f4f4;\n    color: #2d3142;\n    font-family: 'Roboto', sans-serif;\n}\n\n"
 
 /***/ }),
 
